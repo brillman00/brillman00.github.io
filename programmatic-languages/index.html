@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Programmatic Languages (35%) - SFMC Developer Certification</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Programmatic Languages (35%)";
+        var mkdocs_page_input_path = "programmatic-languages.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> SFMC Developer Certification
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Programmatic Languages (35%)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#ampscript">AMPscript</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#syntax">Syntax</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ssjs">SSJS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#platform-functions">Platform Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-functions">Core Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#things-to-know">Things to Know</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#ssjs-methods">SSJS Methods</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ssjs-call-parameters">SSJS Call Parameters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ssjs-supported-personalization-string-tags">SSJS Supported Personalization String Tags</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#parse-json-platform">Parse JSON (Platform)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#http-functions-core">HTTP Functions (Core)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#data-extension-functions-platform">Data Extension Functions (Platform)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ampscript-variable-functions-platform">AMPscript Variable Functions (Platform)</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#personalization-strings">Personalization Strings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exclusion-scripts">Exclusion Scripts</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#where-it-can-be-found">Where it can be found</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-it-works">How it works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uses-ampscript-expressions">Uses AMPScript expressions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sample-use-case">Sample Use Case</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices">Best practices</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-use-ampscript-ssjs-together">How to use AMPScript &amp; SSJS together</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#error-handling">Error Handling</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recommendation-where-to-use-what">Recommendation Where to use what</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#email-order-of-execution">Email Order of Execution</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../api/">API (22%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../data-modeling/">Data Modeling (14%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../data-management/">Data Management (22%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../security/">Security (7%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">SFMC Developer Certification</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Programmatic Languages (35%)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="programmatic-languages">Programmatic Languages</h1>
+<p>You will be challenged to:</p>
+<ul>
+<li>Demonstrate knowledge of AMPscript and SSJS language syntax and functions.</li>
+<li>Implement standard development best practices using Marketing Cloud programming languages</li>
+<li>Describe how Marketing Cloud handles AMPscript processing.</li>
+<li>Determine how to programmatically exclude a subscriber at email send time</li>
+</ul>
+<hr />
+<h2 id="ampscript">AMPscript</h2>
+<h4 id="functions">Functions</h4>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/iif.htm">IIF()</a> - <em>IF statement inline</em></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/output.htm">Output()</a> - <em>Enables variable values to be output at the location where the code block appears. Useful for debugging.</em></li>
+<li><strong>Encryption</strong><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/EncryptSymmetric.htm">EncryptSymmetric()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/DecryptSymmetric.htm">DecryptSymmetric()</a></li>
+</ul>
+</li>
+<li><strong>Encoding</strong><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Base64Encode.htm">Base64Encode()</a></li>
+</ul>
+</li>
+<li><strong>Data Extension Functions</strong><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/insertdata.htm">InsertData()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/lookuprows.htm">LookupRows()</a> - Returns a rowset with limit of 2.5K rows</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/lookuporderedrows.htm">LookupOrderedRows()</a> - Returns specific number of rows and has the ability to sort rows.</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/lookup.htm">Lookup()</a> - gives you 1 value/cell from a data extension</li>
+<li><strong><span style="color:red;">!!!</span></strong> - The majority of the AMPscript questions will likely be around interacting with Data Extensions, so be very familiar with them</li>
+<li><strong><span style="color:red;">!!!</span></strong> - Important to understand the difference between <strong>LookupRows()</strong> and <strong>Lookup()</strong></li>
+<li><strong><span style="color:red;">!!!</span></strong> - Important to understand the difference of <strong>LookupRows()</strong> and <strong>LookupOrderedRows()</strong></li>
+</ul>
+</li>
+<li><strong>Math Functions</strong><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Add.htm">Add()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Subtract.htm">Subtract()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Multiply.htm">Multiply()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Divide.htm">Divide()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Mod.htm">Mod()</a></li>
+</ul>
+</li>
+<li><strong>String Functions</strong><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Substring.htm">Substring()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Length.html">Length()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Uppercase.html">Uppercase()</a>   </li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Lowercase.html">Lowercase()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/IndexOf.html">IndexOf()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Concat.html">Concat()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ReplaceList.html">ReplaceList()</a></li>
+</ul>
+</li>
+<li><strong>Date/Time Functions</strong><ul>
+<li><strong><span style="color:red;">!!!</span></strong> - Uses server time</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Now.htm">Now()</a> - Central Standard Time (CST) without daylight saving time.</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/DateAdd.htm">DateAdd()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/DateDiff.htm">DateDiff()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/DateParse.htm">DateParse()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/DatePart.htm">DatePart()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/FormatDate.htm">FormatDate()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/SystemDateToLocalDate.htm">SystemDateToLocalDate()</a></li>
+</ul>
+</li>
+<li><strong>Content Functions</strong><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/treatascontent.html">TreatAsContent()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/buildrowsetfromstring.html">BuildRowSetFromString()</a></li>
+</ul>
+</li>
+<li>
+<p><strong>MobileConnect Funtions</strong></p>
+<ul>
+<li><a href="">CreateSmsConversation</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Other Functions</strong></p>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/beginimpressionregion.html">BeginImpressionRegion()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/endimpressionregion.html">EndImpressionRegion()</a></li>
+<li><strong><span style="color:red;">!!!</span></strong> - <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/raiseerror.html">RaiseError()</a> - Stops the execution of send</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/FormatCurrency.html">FormatCurrency()</a></li>
+<li><a href="https://ampscript.guide/not-operator/">Not</a> - Reverses the Boolean expression - E.g. not Empty(theField)</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/attributevalue.html">AttributeValue()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/GUID.html">GUID()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/empty.html">Empty()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/Format.html">Format()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/row.html">Row()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/rowcount.html">RowCount()</a> - E.g. combine with IF statement to show default content</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/field.html">Field()</a></li>
+<li><a href="https://ampscript.guide/output/">Output()</a></li>
+</ul>
+</li>
+<li><strong>HTTP Functions</strong><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/httpget.html">HTTPGet()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/redirectto.html">RedirectTo()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/httppost.html">HTTPPost()</a></li>
+<li><strong><span style="color:red;">!!!</span></strong> - To basically work with external data</li>
+</ul>
+</li>
+<li><strong>SFDC Functions</strong><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/retrievesalesforceobjects.html">RetrieveSalesforceObjects()</a> - Creates a record in a Salesforce object</li>
+</ul>
+</li>
+<li><a href="https://ampscript.guide/site-based-functions/"><strong>Site-Based Functions</strong></a><ul>
+<li><a href="https://ampscript.guide/cloudpagesurl/">CloudPagesURL()</a></li>
+<li><a href="https://ampscript.guide/requestparameter/">RequestParameter()</a> - used on CloudPages</li>
+<li><a href="https://ampscript.guide/queryparameter/">QueryParameter()</a></li>
+</ul>
+</li>
+<li>API Functions<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/invokecreate.html">InvokeCreate()</a></li>
+</ul>
+</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/dataModificationFunctions.html"><strong>Data Modification Functions</strong></a><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ampscriptProcessing.html">AMPscript Processing</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="syntax">Syntax</h4>
+<ul>
+<li><strong>Attributes</strong><ul>
+<li>Use [] square brackets to refer to attributes that contain space in the name (E.g. Data Extension Fields)</li>
+</ul>
+</li>
+<li><strong>VAR</strong><ul>
+<li>Used to declare a variable</li>
+<li>Tells the system that the variable exists</li>
+<li>Declared variables get the value of NULL</li>
+<li><strong><span style="color:red;">!!!</span></strong> - Variable declaration VAR @variable is considered a best practice, even though is not mandatory</li>
+</ul>
+</li>
+<li><strong>SET</strong><ul>
+<li>Assign a value to a decalred variable</li>
+</ul>
+</li>
+<li><strong>AMPScript is case INsensitive</strong><ul>
+<li>The platform ignore the case (lower,upper)</li>
+<li>@firstname is the same as @firstNAME or @FIRSTname</li>
+</ul>
+</li>
+<li><strong>Delimiters</strong><ul>
+<li>Block: %%[ some code here ]%%</li>
+<li>Inline: %%=SomeFunctionHere=%%</li>
+</ul>
+</li>
+<li><strong>Comparison</strong><ul>
+<li>Is equal: ==</li>
+<li>Is not equal: !=</li>
+<li>Greater than: &gt;</li>
+<li>Less than: &lt;</li>
+<li>Greater or equal than: &gt;=</li>
+<li>Less than or equal than: &lt;=</li>
+<li>AND: Both conditions must be true</li>
+<li>OR: Either condition must be true</li>
+<li>NOT: The opposite value of a boolean expression</li>
+</ul>
+</li>
+<li><strong>Conditional Logic</strong> <ul>
+<li>Process Loop: FOR ... TO ... DO ... NEXT</li>
+<li>Evaluate conditions: IF ... ELSEIF ... ELSE ... ENDIF</li>
+</ul>
+</li>
+<li><strong>Commenting</strong><ul>
+<li>/* comment */</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="ssjs"><a href="https://joernberkefeld.github.io/SFMC-Cookbook/ssjs/">SSJS</a></h2>
+<h3 id="platform-functions"><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformFunctions.html">Platform Functions</a></h3>
+<p>Platform Server-side JavaScript functions allow you to use standard JSON and JavaScript functionality to interact with the Marketing Cloud platform. Platform objects can function within email messages, mobile messages, CloudPages, microsites, and landing pages. <strong>Because platform objects exist outside of the core library, you can realize faster performance than with other Server-side JavaScript functions.</strong></p>
+<ul>
+<li>Email</li>
+<li>SMS</li>
+</ul>
+<h3 id="core-functions"><a href="https://gortonington.com/sfmc-server-side-javascript-4-core-library/">Core Functions</a></h3>
+<p>Core library server-side JavaScript functions allow you to use standard JSON and JavaScript functionality to interact with Marketing Cloud. Core objects can function within landing pages and applications.</p>
+<ul>
+<li>Landing Pages</li>
+<li>Applications</li>
+</ul>
+<hr />
+<h3 id="things-to-know">Things to Know</h3>
+<h4 id="ssjs-methods">SSJS Methods</h4>
+<ul>
+<li>Add — Invokes the web service API Create method on an API object</li>
+<li>Remove — Invokes the web service API Delete method on an API object</li>
+<li>Update — Invokes the web service API Update method on an API object</li>
+<li>Retrieve — Invokes the web service API Retrieve method on an API object</li>
+</ul>
+<h4 id="ssjs-call-parameters">SSJS Call Parameters</h4>
+<ul>
+<li>Language, ExecutionContextType, ExecutionContentName</li>
+<li>Language parameter, you can specify either JavaScript or AMPscript. The system defaults to JavaScript.</li>
+<li>For ExecutionContextType, you can specify either Get or Post. If no parameter is specified, the system defaults to Get.</li>
+<li>For ExecutionContextName</li>
+</ul>
+<h4 id="ssjs-supported-personalization-string-tags">SSJS Supported Personalization String Tags</h4>
+<ul>
+<li><ctrl:field name="the_field" /> — References subscriber attribute values, system attribute values, and sendable data extension field values</li>
+<li><ctrl:var name="the_var" /> — References variables created in AMPscript or server-side JavaScript script blocks</li>
+<li>ctrl:eval — Embeds JavaScript expressions as content substitutions</li>
+</ul>
+<h4 id="parse-json-platform">Parse JSON (Platform)</h4>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformUtilityParseJSON.html">ParseJSON()</a></li>
+</ul>
+<h4 id="http-functions-core"><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_httpFunctions.html">HTTP Functions</a> (Core)</h4>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_httpGet.html">Get()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_httpPost.html">Post()</a></li>
+</ul>
+<h4 id="data-extension-functions-platform"><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformDataExtensionFunctions.html">Data Extension Functions</a> (Platform)</h4>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformDataExtensionLookup.html">LookUp()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformDataExtensionLookupRows.html">LookUpRows()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformDataExtensionLookupOrderedRows.html">LookUpOrderedRows()</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformDataExtensionUpdateDE.html">UpdateDE()</a> - Email Only</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformDataExtensionUpsertDE.html">UpsertDE()</a> - Email Only</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformDataExtensionUpdateData.html">UpdateData()</a> - Non-sendable context</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformDataExtensionUpsertData.html">UpsertData()</a> - Non-sendable context</li>
+</ul>
+<h4 id="ampscript-variable-functions-platform">AMPscript Variable Functions (Platform)</h4>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformAMPscriptVariableGetValue.html">GetValue()</a> - var example = Platform.Variable.GetValue("@AMPscriptValue");</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_platformAMPscriptVariableSetValue.html">SetValue()</a> - Platform.Variable.SetValue("@exampleVariable","exampleValue");</li>
+</ul>
+<hr />
+<h2 id="personalization-strings">Personalization Strings</h2>
+<ul>
+<li>Is not AMPScript</li>
+<li>Used to insert account/subscriber specific values from<ul>
+<li>Profile attribute</li>
+<li>Data Extension column</li>
+</ul>
+</li>
+<li>Can be used<ul>
+<li>Inside AMPscript: Does not use %%...%%</li>
+<li>Outside AMPscript: Used with %%...%%</li>
+</ul>
+</li>
+<li><a href="https://ampscript.com/_messagecontext-string/">_messagecontext</a></li>
+<li>_IsTestSend: Resolves to TRUE if the email job is marked as a Test Send.</li>
+</ul>
+<hr />
+<h2 id="exclusion-scripts">Exclusion Scripts</h2>
+<h4 id="where-it-can-be-found"><a href="https://help.salesforce.com/s/articleView?id=000339899&amp;type=1">Where it can be found</a></h4>
+<h4 id="how-it-works">How it works</h4>
+<ul>
+<li>It excludes subscribers at the send time</li>
+<li>No AMPScript blocks or Inline AMPScript can be included</li>
+<li>Variables cannot be set</li>
+<li>The expression must return TRUE or FALSE</li>
+<li>The script cannot spread to multiple lines</li>
+</ul>
+<h4 id="uses-ampscript-expressions">Uses AMPScript expressions</h4>
+<ul>
+<li>If evaluated to TRUE, then suppress the particular sending</li>
+</ul>
+<h4 id="sample-use-case">Sample Use Case</h4>
+<ul>
+<li>API triggered send with no possibility to deduplicate the send</li>
+<li>For instance, welcome email that is meant to be sent only once</li>
+<li>For instance, exclude some domain: Domain(emailaddr) != "yahootest.com"</li>
+</ul>
+<h4 id="best-practices">Best practices</h4>
+<ul>
+<li>Try to avoid it</li>
+<li>Treat your exclusions during the segmentation</li>
+</ul>
+<hr />
+<h2 id="how-to-use-ampscript-ssjs-together">How to use AMPScript &amp; SSJS together</h2>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_utilitiesVariableSetValue.html">Set Variable</a><ul>
+<li>Variable.SetValue("myVariable","myValue");</li>
+</ul>
+</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_utilitiesVariableGetValue.html">Get Variable</a><ul>
+<li>Variable.GetValue("@myAmpVariable");</li>
+</ul>
+</li>
+</ul>
+<h4 id="error-handling">Error Handling</h4>
+<pre><code class="language-javascript">&lt;script runat=&quot;server&quot;&gt;
+    Platform.Load('Core','1');
+
+    try {
+&lt;/script&gt;
+%%[ AMPScript Code ]%%
+&lt;script runat=&quot;server&quot;&gt;
+    } catch(e) {
+        Write(Stringify(e));
+    }
+&lt;/script&gt;
+</code></pre>
+<hr />
+<h2 id="recommendation-where-to-use-what">Recommendation Where to use what</h2>
+<ul>
+<li>AMPScript<ul>
+<li>Emails and Landing pages</li>
+</ul>
+</li>
+<li>SSJS<ul>
+<li>Landing pages and Script activities</li>
+</ul>
+</li>
+<li>GTL<ul>
+<li>Emails: Especially to standardize presentation layer (E.g. Transactional Messages)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="email-order-of-execution">Email Order of Execution</h2>
+<ol>
+<li>Preheader</li>
+<li>HTML Boday</li>
+<li>Text Body</li>
+<li>Subject Line </li>
+</ol>
+<hr />
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/programmatic-content-overview.html"><em>Salesforce Developers</em>: AMPscript Documentation</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/ssjs_serverSideJavaScript.html"><em>Salesforce Developers</em>: Server-side JavaScript Documentation</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/guideTemplateLanguage.html"><em>Salesforce Developers</em>: Guide Template Language Documentation</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api/" class="btn btn-neutral float-right" title="API (22%)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../api/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

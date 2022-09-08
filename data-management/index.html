@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Data Management (22%) - SFMC Developer Certification</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Data Management (22%)";
+        var mkdocs_page_input_path = "data-management.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> SFMC Developer Certification
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../programmatic-languages/">Programmatic Languages (35%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../api/">API (22%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../data-modeling/">Data Modeling (14%)</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Data Management (22%)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#data-views">Data Views</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-extract">Data Extract</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#import-activity">Import Activity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-transfer-activity">File Transfer Activity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#subscription-management">Subscription Management</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sendlogs">Sendlogs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices">Best Practices</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#synchronized-data-extensions">Synchronized Data Extensions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contact-delete-feature">Contact Delete Feature</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#deletion-process">Deletion Process</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sql">SQL</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices_1">Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#join-statements">JOIN Statements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#union">UNION</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operations">Operations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#good-to-know">Good to Know</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#subqueries">Subqueries</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../security/">Security (7%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">SFMC Developer Certification</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Data Management (22%)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="data-management">Data Management</h1>
+<p>You will be challenged to:</p>
+<ul>
+<li>Configure import activity using various file formats within Marketing Cloud</li>
+<li>Apply <strong>SQL</strong> to produce the desired results</li>
+<li>Explain the different ways to <strong>extract data</strong> from Marketing Cloud</li>
+<li>Describe <strong>SQL</strong> best practices for managing data in Marketing Cloud</li>
+<li>Apply best practices for <strong>send logs</strong></li>
+<li>Describe how <strong>data is affected</strong> by the <strong>Contact delete process</strong>.</li>
+</ul>
+<hr />
+<h2 id="data-views">Data Views</h2>
+<p>Get to know these system views by heart:</p>
+<ul>
+<li>_listsubscribers</li>
+<li>_subscribers<ul>
+<li>Parent Business Unit only</li>
+<li>To determining the Business Unit level subscriber status is by running a Tracking Extract from the Business Unit and include 'All Subscribers' in your extract. The resulting subscribers.txt file will contain that status relative to that business unit.</li>
+</ul>
+</li>
+<li>_sent</li>
+<li>_open</li>
+<li>_click</li>
+<li>_bounce</li>
+<li>_unsubscribe</li>
+<li>_complaint</li>
+<li>_job</li>
+<li>_journeyactivity</li>
+<li>_journey</li>
+</ul>
+<hr />
+<h2 id="data-extract"><a href="https://help.salesforce.com/s/articleView?id=sf.mc_as_use_a_data_extract_activity.htm&amp;type=5">Data Extract</a></h2>
+<ul>
+<li><a href="https://help.salesforce.com/s/articleView?id=sf.mc_as_extract_types.htm&amp;type=5">Extract Types</a></li>
+<li><a href="https://help.salesforce.com/s/articleView?id=sf.mc_as_create_a_data_extract_file.htm&amp;type=5">Export</a><ul>
+<li>Create 1 or more zipped files to export data</li>
+</ul>
+</li>
+<li>Import<ul>
+<li><a href="https://help.salesforce.com/s/articleView?id=mc_as_convert_xml.htm&amp;type=5&amp;language=en_US">Convert XML file</a> into other file to import... comma,tab,pipe</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="import-activity"><a href="https://help.salesforce.com/s/articleView?id=sf.mc_as_use_an_import_activity.htm&amp;type=5">Import Activity</a></h2>
+<ul>
+<li>Types<ul>
+<li>Post File Drop<ul>
+<li><a href="https://help.salesforce.com/s/articleView?id=sf.mc_as_substitution_strings_example.htm&amp;type=5">%%FILENAME_FROM_TRIGGER%%</a></li>
+</ul>
+</li>
+<li>Post File Transfer Activity<ul>
+<li>%%FILENAME_FROM_TRIGGER_BASE%%</li>
+</ul>
+</li>
+<li>Scheduled</li>
+</ul>
+</li>
+<li>Can be used to<ul>
+<li>Add, Add/Update, Update, Overwrite</li>
+</ul>
+</li>
+<li>If the file you are importing is encrypted or compressed, you can use a file transfer activity to prepare the file for import.</li>
+<li>Marketing Cloud Connect users can create an import activity to populate a data extension with object and report data from other clouds via Synchronized Data Sources.</li>
+<li>You can specify the character encoding your imports use by contacting your Salesforce admin. The encoding you enable applies to all imports in an account.</li>
+<li>Marketing Cloud assumes that the FTP server in the selected file transfer location reports time in UTC. UTC assumes no time zone offset. If the remote FTP server is not utilizing UTC, adjust limits specified on the Properties page, including System buffer, during activity setup to ensure the activity runs on the intended schedule.</li>
+</ul>
+<hr />
+<h2 id="file-transfer-activity">File Transfer Activity</h2>
+<p>Encrypt files with <a href="https://members.exacttarget.com/Content/Subscribers/SubsLists/publickey.txt">SFMC Public Key</a></p>
+<p>Use this activity for a file found on the FTP to:</p>
+<ul>
+<li>Unzip Files - drops file in the same folder</li>
+<li>Decrypt Files - Requires Private Key<ul>
+<li>PGP / GPG Decryption</li>
+</ul>
+</li>
+<li>Move file from FTP to safehouse<ul>
+<li>Safehouse is not an accesible place</li>
+<li>It is a data store at the platform level</li>
+</ul>
+</li>
+<li>Files will remain on the sFTP for at least 21 days</li>
+</ul>
+<hr />
+<h2 id="subscription-management">Subscription Management</h2>
+<hr />
+<h2 id="sendlogs"><a href="https://help.salesforce.com/s/articleView?id=sf.mc_es_send_logging.htm&amp;type=5">Sendlogs</a></h2>
+<ul>
+<li>Gives you access to data not available via standard tracking functions in the Salesforce Marketing Cloud application. You can also specify how long that information will be available depending on your data retention needs</li>
+<li>You can run query activities on the send logging data extension to return information on the information contained in that data extension.</li>
+</ul>
+<h4 id="best-practices"><a href="https://help.salesforce.com/s/articleView?id=sf.mc_es_send_logging_best_practices.htm&amp;type=5">Best Practices</a></h4>
+<ul>
+<li>Important to assign a data retention policy, 10 days recommended</li>
+<li>Keep the number of custom fields low, 10 or fewer</li>
+<li>When creating a field type Text<ul>
+<li>Do not leave its length blank</li>
+<li>Avoid assigning a huge length (1000+)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="synchronized-data-extensions"><a href="https://help.salesforce.com/s/articleView?id=sf.mc_co_implement_synchronized_data_sources_best_practices.htm&amp;type=5">Synchronized Data Extensions</a></h2>
+<ul>
+<li>Criteria on data import</li>
+</ul>
+<hr />
+<h2 id="contact-delete-feature">Contact Delete Feature</h2>
+<ul>
+<li>Full understanding of <a href="https://help.salesforce.com/s/articleView?id=sf.mc_cab_contact_deletion.htm&amp;type=5">delete process</a></li>
+<li><a href="https://help.salesforce.com/s/articleView?id=sf.mc_cab_best_practices.htm&amp;type=5">Best Practices</a><ul>
+<li>To improve Contact Delete performance, break your requests into at least 6 smaller requests and submit each request 5 minutes apart.</li>
+<li>To improve the speed of this process, delete any unnecessary sendable data extensions in your account.</li>
+<li>You can delete up to one million records.</li>
+</ul>
+</li>
+<li>Order of Operation<ul>
+<li>Deletion process initiated &gt; Suppression period &gt; Final deletion</li>
+</ul>
+</li>
+<li>Only contacts in these studios can be delieted<ul>
+<li>Email Studio</li>
+<li>MobileConnect</li>
+<li>MobilePush</li>
+<li>Contact Builder</li>
+</ul>
+</li>
+<li>Feature needs to be enabled in the parent account level</li>
+</ul>
+<h3 id="deletion-process"><a href="https://mateuszdabrowski.pl/docs/usecase/sfmc-contact-deletion/">Deletion Process</a></h3>
+<ol>
+<li>Process is initiated<ul>
+<li>Enterprise 2.0 Accounts - Deletion should be initiated from the parent account level</li>
+<li>When the process is initiated, suppressed contacts will<ul>
+<li>Disappear from Journey Builder - <em>It prevents entry by any contact with the same ContactKey</em></li>
+<li>Disappear from Contact builder - <em>It prevents creation of any new contact record with the same ContactKey</em></li>
+<li>Disappear from Audience Builder - <em>Deleted ContatKeys are excluded from audiences</em></li>
+<li>Not receive sends or appear in Email Studio - <em>It prevents addition of any contact with the same ContactKey via imports or triggered sends</em></li>
+<li>Not received sends or appear in MobileConnect - <em>During this phase, triggered sends and responses to subscriber' messages aren't delivered</em></li>
+<li>Not receive sends or appear in MobilePush</li>
+<li>Not receive sends or appear in GroupConnect - <em>Follow requests are ignored. Block requests are processed. No auto-responses to incoming messages are triggered</em></li>
+<li>Not receive sends or appear in Web Recommendations, Email Recommendataions, and Web and Mobile Analytics.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Suppression period<ul>
+<li>14 days - <em>it can be reduced to 0 (zero)</em></li>
+<li>Suppress sends, only - <em>no communications will be sent to that contact</em></li>
+<li>The recommended period is set to 0 (zero), however it totally depends on your account design</li>
+</ul>
+</li>
+<li>Deletion occurrs<ul>
+<li>Removed a contact from your Marketing Cloud instance, not only a BU</li>
+<li>Contacts are deleted from lists and sendable data extensions - <em>Non-sendable DE needs to be part of population, to be included in the deletion process</em></li>
+<li>In the backend, the KEYS are preserved and the personal information anonymized, so it doesn't affect data reporting<ul>
+<li>Tracking information of a contact will be deleted</li>
+<li>Aggregate data is still preserved</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<ul>
+<li>Sends, Imports, automation, query activites... have priority over deletion process<ul>
+<li>The deletion will occur, over the night UTC system time, when no other process is running</li>
+<li>Deletion process has the lowest priority in the stack</li>
+</ul>
+</li>
+<li>Limitations<ul>
+<li>1 million records per data extension / list</li>
+<li>Only 1 key can be used to identify the contact to delete<ul>
+<li>Subscriber Key or Contact Key</li>
+<li>Email is not an option</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>REST API Call<ul>
+<li>The <a href="https://trailhead.salesforce.com/content/learn/modules/contact-deletion-in-marketing-cloud/delete-contacts-with-the-rest-api">deletion call process</a> key by key from the payload, asynchronously - <em>the process can last serveral hours to complete</em></li>
+<li>Perform it from the parent account, not from the BU</li>
+<li>You can delete contacts in 3 different types of request<ul>
+<li>1st, by Contact ID - <em>POST /contacts/v1/contacts/actions/delete?type=ids</em></li>
+<li>2nd, by Contact Key - <em>POST /contacts/v1/contacts/actions/delete?type=keys</em></li>
+<li>3rd, by List - <em>POST /contacts/v1/contacts/actions/deletetype=listReference</em></li>
+</ul>
+</li>
+<li>Request payload, sample</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-json">{
+    &quot;ContactTypeID&quot;:0,
+    &quot;values&quot;:[&quot;ContactKey1&quot;,&quot;ContactKey2&quot;,&quot;ContactKey3&quot;],
+    &quot;DeleteOperationType&quot;:&quot;ContactAndAttributes&quot;
+} 
+</code></pre>
+<hr />
+<h2 id="sql"><a href="https://help.salesforce.com/s/articleView?id=sf.mc_as_sql_reference.htm&amp;type=5">SQL</a></h2>
+<h4 id="best-practices_1">Best Practices</h4>
+<ul>
+<li>Split long/complex queries in multiple steps<ul>
+<li>To increase performance</li>
+<li>To avoid timeout</li>
+</ul>
+</li>
+<li>Use brackets to mention the name of field or data extensions that have a space in their name</li>
+<li>Use alias to assign temporary name for tables, to make query easy to read</li>
+</ul>
+<h4 id="join-statements">JOIN Statements</h4>
+<p>Used to retrieve data from 2 or more data extensions</p>
+<ul>
+<li>INNER JOIN<ul>
+<li>Return the matched values from 2 or more tables</li>
+<li>In other words, it looks for records that exists in both tables</li>
+</ul>
+</li>
+<li>LEFT JOIN</li>
+<li>RIGHT JOIN</li>
+<li>OUTER JOIN</li>
+</ul>
+<h4 id="union">UNION</h4>
+<p>Combine the results of two or more queries in one result</p>
+<ul>
+<li>Requirements<ul>
+<li>Fields' data type must be the same</li>
+<li>Number of fields must be the same across queries</li>
+<li>Order of fields must be the same across queries</li>
+</ul>
+</li>
+<li><a href="https://www.w3schools.com/sql/sql_ref_union.asp">UNION</a><ul>
+<li>Eleminates dupliates</li>
+<li>Unifies only unique records</li>
+</ul>
+</li>
+<li><a href="https://www.w3schools.com/sql/sql_ref_union_all.asp">UNION ALL</a><ul>
+<li>Unifies all records, even duplicate records</li>
+</ul>
+</li>
+</ul>
+<h4 id="functions">Functions</h4>
+<ul>
+<li>Conditional Clauses<ul>
+<li><a href="https://www.w3schools.com/sql/sql_ref_where.asp">WHERE</a></li>
+<li><a href="https://www.w3schools.com/sql/sql_ref_between.asp">BETWEEN</a></li>
+<li>[HAVING]</li>
+<li><a href="https://www.w3schools.com/sql/sql_case.asp">CASE</a></li>
+</ul>
+</li>
+<li>Converting Data<ul>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_cast.asp">Cast()</a></li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_convert.asp">Convert()</a></li>
+</ul>
+</li>
+<li>Limiting and Ordering results<ul>
+<li>TOP</li>
+<li>ORDER BY</li>
+<li>GROUP BY</li>
+</ul>
+</li>
+<li>Date-based Functions<ul>
+<li>DATEDIFF</li>
+<li>DATEADD</li>
+<li>DATEPART</li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_isdate.asp">ISDATE()</a></li>
+</ul>
+</li>
+<li>Aggregations<ul>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_avg.asp">Avg()</a></li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_sum.asp">Sum()</a></li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_count.asp">Count()</a></li>
+<li>Min()</li>
+<li>Max()</li>
+</ul>
+</li>
+<li>Replacing, Locating and Trimming data<ul>
+<li>[Replace()]</li>
+<li>[Char()]</li>
+<li>[LTrim()]</li>
+<li>[RTrim()]</li>
+</ul>
+</li>
+</ul>
+<h4 id="operations">Operations</h4>
+<ul>
+<li>Not allowed: INSERT, DELETE, UPDATE</li>
+<li>Allowed: SELECT</li>
+</ul>
+<h4 id="good-to-know">Good to Know</h4>
+<ul>
+<li>TOP used without ORDER BY can result in different results, every time it runs</li>
+<li>TOP with ORDER BY returns the same result set every time it runs</li>
+<li>Based on MS SQL server 2008 capabilities</li>
+<li>The server is in Centeral Standard Time (CST)<ul>
+<li>In case your instance is in a different timezone, data conversion functions should be considered</li>
+</ul>
+</li>
+<li>ROW_NUMBER() + PARTITION BY + ORDER BY can be used to get the most recent data</li>
+</ul>
+<h4 id="subqueries"><a href="https://mode.com/sql-tutorial/sql-sub-queries/">Subqueries</a></h4>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../data-modeling/" class="btn btn-neutral float-left" title="Data Modeling (14%)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../security/" class="btn btn-neutral float-right" title="Security (7%)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../data-modeling/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../security/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Security (7%) - SFMC Developer Certification</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Security (7%)";
+        var mkdocs_page_input_path = "security.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> SFMC Developer Certification
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../programmatic-languages/">Programmatic Languages (35%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../api/">API (22%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../data-modeling/">Data Modeling (14%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../data-management/">Data Management (22%)</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Security (7%)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#key-management">Key Management</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ssl-certificate">SSL Certificate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#encryption">Encryption</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#marketing-cloud-connector">Marketing Cloud Connector</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#automation">Automation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#decrypt-file-on-import">Decrypt file on import</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#encode-functions-email-and-cloudpages">Encode functions Email and Cloudpages</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#levels-of-encryption">Levels of Encryption</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#transparent-data-encryption-encryption-at-rest">Transparent Data Encryption (Encryption At Rest)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#field-level-encryption-encrypted-data-sending">Field Level Encryption (Encrypted Data Sending)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tokenized-sending">Tokenized Sending</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#security-best-practices">Security Best Practices</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">SFMC Developer Certification</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Security (7%)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="security">Security</h1>
+<p>You will be challenged to:</p>
+<ul>
+<li>Identify different options to <strong>secure data</strong> in Marketing Cloud</li>
+<li>Describe <strong>security best practices</strong> in Marketing Cloud</li>
+</ul>
+<hr />
+<h3 id="key-management">Key Management</h3>
+<ul>
+<li>What is it<ul>
+<li>Provides a method you can use to manage AES encryption and decryption options for your email messages and landing pages.</li>
+<li>Use this feature to manage certificates and other security options regarding the encryption, decryption, and digital signing of email messages.</li>
+</ul>
+</li>
+<li>Asymmectric Encryption<ul>
+<li>Asymmetric encryption requires a pre-created certificate uploaded from your computer to your Salesforce Marketing Cloud account, which can be used for encrypted imports.</li>
+</ul>
+</li>
+<li>Symmetric Encryption<ul>
+<li>Symmetric encryption requires you to create a passphrase for use with the key.</li>
+</ul>
+</li>
+<li>Initialization Vector Encryption<ul>
+<li>Initialization vector encryption requires you to enter the block of bits to be used as the initialization vector. You can specify the 16-byte IV yourself.</li>
+</ul>
+</li>
+<li>Salt Encryption<ul>
+<li>Salt encryption requires a hex value longer than 8 bits for use as a salt value. The encryption uses random bits generated along with a password or passphrase. The salt value does not include a maximum length value. Use Salt keys to generate JWTs for custom Journey Builder activities.</li>
+</ul>
+</li>
+<li>SAML (Security Assertion Markup Language)<ul>
+<li>Allows you to provide either the required metadata or the URL from which to retrieve that metadata to use this feature. SAML allows you to exchange authentication information with an external authentication service to enable single sign-on functionality for users. This feature allows users to authenticate once for access to multiple systems.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="ssl-certificate"><a href="https://help.salesforce.com/s/articleView?id=000339842&amp;type=1">SSL Certificate</a></h3>
+<ul>
+<li>SSL certificates keep online interactions private even though they travel across the public Internet, and they help customers gain the confidence to transact with your website.</li>
+<li>1 SSL will be used to secure 1 domain. 4 SSLs will be needed to secure clicks, views, images, and CloudPage domains</li>
+</ul>
+<hr />
+<h3 id="encryption"><a href="https://help.salesforce.com/s/articleView?language=en_US&amp;type=5&amp;id=mc_co_marketing_cloud_connect_encryption.htm">Encryption</a></h3>
+<hr />
+<h3 id="marketing-cloud-connector"><a href="https://help.salesforce.com/s/articleView?id=sf.mc_co_marketing_cloud_connect.htm&amp;type=5">Marketing Cloud Connector</a></h3>
+<ul>
+<li>Synchronized Data Sources<ul>
+<li>Data Encrypted in Sales and Service Cloud</li>
+<li>MC re-encrypts data using field-level encryption symmetric key upon import</li>
+</ul>
+</li>
+<li>Reports and campaign sends<ul>
+<li>Support platform encryption</li>
+<li>Both are encrypted in MC with field level encryption</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="automation">Automation</h3>
+<ul>
+<li>Journey Builder Events<ul>
+<li>Does not support platform encryption through events</li>
+<li>To maintain encryption: use field-level encryption with sychronized data extensions, instead of data imports</li>
+</ul>
+</li>
+<li>Automation Studio Imports<ul>
+<li>Does not support platform encryption<ul>
+<li>Data imported is not encrypted, even data from Sales and Service Cloud</li>
+</ul>
+</li>
+<li>To maintain encryption<ul>
+<li>Synchronize encrypted Salesforce opbjects with Synchronized Data Sources</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="decrypt-file-on-import">Decrypt file on import</h3>
+<hr />
+<h3 id="encode-functions-email-and-cloudpages">Encode functions Email and Cloudpages</h3>
+<hr />
+<h2 id="levels-of-encryption">Levels of Encryption</h2>
+<h4 id="transparent-data-encryption-encryption-at-rest"><a href="https://help.salesforce.com/s/articleView?id=sf.mc_overview_data_encryption.htm&amp;type=5">Transparent Data Encryption</a> (Encryption At Rest)</h4>
+<ul>
+<li>Encryption at rest at the database level</li>
+<li>No impact on application usage</li>
+<li>Minimal performance overhead</li>
+<li>Keys stored in <a href="https://en.wikipedia.org/wiki/FIPS_140-2#Level_3">FIPS Level 3</a> complient <a href="https://en.wikipedia.org/wiki/Hardware_security_module">HSMs</a></li>
+<li>No application layer encryption</li>
+<li><strong>Protects when physical access to media is compromised</strong></li>
+</ul>
+<h4 id="field-level-encryption-encrypted-data-sending"><a href="https://help.salesforce.com/s/articleView?language=en_US&amp;type=5&amp;id=mc_overview_field_level_encryption.htm">Field Level Encryption</a> (Encrypted Data Sending)</h4>
+<ul>
+<li>Encryption at rest at the field level (encrypted fields are visible but encrypted)</li>
+<li>Requires key value and initialization vector when using encryption keys</li>
+<li>Applies at the account level for new accounts</li>
+<li>Implies limits on use of data within application to send-time only (decrypts at send)</li>
+<li><strong>Protects sensitive data within application</strong></li>
+<li>Can only be implemented on new instances</li>
+<li>Cannot segment, filter, or query encrypted fields</li>
+<li>Must use data extensions</li>
+<li>Cannot report on encrytped fields</li>
+<li>Cannot use auto-suppression lists</li>
+<li>Must use subscriber keys for each contact/subscribers (should not encrypt sub keys)</li>
+<li>Cannot encrypt data extensions through Email Studio (must use Contact Builder)</li>
+<li>Only email and text data types can be encrypted</li>
+<li>Only email channel is supported</li>
+<li>Performance impact during encryption/decryption process (mostly for larger volumes)</li>
+<li>Keys stored in dedicated application database key store</li>
+<li><strong>Key Management</strong><ul>
+<li>Keys must be setup prior to encrypting data</li>
+<li>Keys should ideally be rotated on a periodic basis</li>
+<li>Following Key types supported<ul>
+<li>Salt</li>
+<li>Symmetric</li>
+<li>Asymmetric</li>
+</ul>
+</li>
+<li>Encryption Schemas supported (in sFTP)<ul>
+<li>PGP</li>
+<li>GPG</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="tokenized-sending"><a href="https://help.salesforce.com/s/articleView?language=en_US&amp;type=5&amp;id=mc_overview_tokenized_sending1.htm">Tokenized Sending</a></h4>
+<ul>
+<li>Off platform data storage (send data is not stored in SFMC)</li>
+<li>API access at send time using token</li>
+<li>Implies limits on use of data within application to send-time only (retrieves at send)</li>
+<li>Safe to use with PII and PHI (personal health information)</li>
+</ul>
+<hr />
+<h2 id="security-best-practices">Security Best Practices</h2>
+<ul>
+<li>Principle of Least Privilege<ul>
+<li>Every user, process or program must be able to access only the information and resources that are required for a legitimate purpose. Only bring in the data we need to achieve the outcomes.<ul>
+<li>Segmentation</li>
+<li>Personalization</li>
+<li>Data Modeling</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Session Settings:<ul>
+<li>20-minute Session Timeout (longer sessions for active users might be more practical)</li>
+<li>Enable require Secure Connections (https) checkbox</li>
+</ul>
+</li>
+<li>Username and Logins:<ul>
+<li>Login Expires After Inactivity of 90 days or fewer</li>
+<li>Value of 3 Invalid Logins Before Lockout</li>
+<li>Usernames require at least 8 characters</li>
+</ul>
+</li>
+<li>Password Policies:<ul>
+<li>Set Minimum Password Length to at least 8 characters</li>
+<li>Enforce Password History value to 8</li>
+<li>User Password Expires in 90 days</li>
+<li>Do not select Exclude FTP Users from Password Expiration</li>
+<li>Always enable Send Password Change Confirmation Email</li>
+</ul>
+</li>
+<li>Roles and Permissions<ul>
+<li>"Deny" permission in any role or individual user prevents access to that feature, no matter what other roles are specific to that feature.</li>
+</ul>
+</li>
+<li>Data Export Settings:<ul>
+<li>Enforce Export Email Whitelist</li>
+</ul>
+</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/api-security.html">API Integration Security</a></li>
+<li><a href="https://help.salesforce.com/s/articleView?id=sf.mc_overview_perform_file_transfer_to_safehouse_location.htm&amp;type=5">File Transfer Security</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../data-management/" class="btn btn-neutral float-left" title="Data Management (22%)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../data-management/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

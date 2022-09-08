@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>API (22%) - SFMC Developer Certification</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API (22%)";
+        var mkdocs_page_input_path = "api.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> SFMC Developer Certification
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../programmatic-languages/">Programmatic Languages (35%)</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">API (22%)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installed-package">Installed Package</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#concepts">Concepts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#when-to-use">When to Use</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#rest-api">REST API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#web-services-soap-api">Web Services SOAP API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#api-caveats">API Caveats</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#optimize">Optimize</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rest-api_1">REST API</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#response-handling">Response Handling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#processing-types">Processing Types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rest-routes">REST Routes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#popular-routes-uses">Popular Routes (Uses)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#api-reference">API Reference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parse-json">Parse JSON</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#soap-api">SOAP API</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#payload">Payload</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#objects">Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#async-requests">Async Requests</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#error-handling">Error Handling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#triggered-send">Triggered Send</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#error-handling_1">Error Handling</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#rate-limiting-errors">Rate Limiting Errors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rest-error-codes">REST Error Codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#error-codes">Error Codes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hands-on-activity">Hands on Activity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../data-modeling/">Data Modeling (14%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../data-management/">Data Management (22%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../security/">Security (7%)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">SFMC Developer Certification</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>API (22%)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api">API</h1>
+<p>You will be challenged to:</p>
+<ul>
+<li>Describe <strong>API objects</strong>, <strong>methods</strong>, and <strong>routes</strong>.</li>
+<li>Describe the <strong>OAuth</strong> authentication flow and how an access token is used in <strong>SOAP</strong> and <strong>REST</strong> headers.</li>
+<li>Evaluate the significance of <strong>response handling</strong>.</li>
+</ul>
+<hr />
+<h2 id="installed-package">Installed Package</h2>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/data-access-permissions.html">Permissions</a><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/rest-permissions-and-scopes.html">API Permission Scopes</a></li>
+</ul>
+</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/install-packages.html">How to create</a><ul>
+<li><a href="https://help.salesforce.com/s/articleView?id=000357115&amp;type=1">Tenant Specific Endpoints</a><ul>
+<li>The goal of the TSE architecture is to provide our customers improved security, service reliability, availability, and performance.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Create a package for each system + IP combo that integrates with SFMC.</li>
+</ul>
+<hr />
+<h2 id="concepts">Concepts</h2>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/soap_web_service_objects.html">Objects</a> - Objects are elements that you use within policy rules.</li>
+<li><a href="https://restfulapi.net/http-methods/">Methods</a> - for HTTP... GET, POST, PUT, DELETE, PATCH</li>
+<li><a href="https://help.salesforce.com/s/articleView?id=sf.mc_overview_tenant_types.htm&amp;type=5">Tenants</a> &amp; <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/your-subdomain-tenant-specific-endpoints.html">Endpoints</a> - Marketing Cloud automatically assigns a unique, system-generated subdomain (for the end point) to each of its tenants.</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/routes.html">Routes</a> - A route is the "name" you use to access endpoints, used in the URL. A route can have multiple endpoints associated with it.<ul>
+<li>E.g. <em>/address/v1/validateEmail</em></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="when-to-use">When to Use</h2>
+<h4 id="rest-api">REST API</h4>
+<ul>
+<li>Contacts</li>
+<li>Content Builder</li>
+<li>Journey Builder</li>
+<li>Mobile Connect</li>
+<li>MobilePush</li>
+<li>Campaigns</li>
+<li>Triggered Sends (may also use SOAP)</li>
+</ul>
+<h4 id="web-services-soap-api">Web Services SOAP API</h4>
+<ul>
+<li>Tracking</li>
+<li>Subscribers and lists</li>
+<li>Automations</li>
+<li>Triggered Sends (may also use REST)</li>
+<li>Content</li>
+<li>Most other email activities</li>
+</ul>
+<h4 id="api-caveats">API Caveats</h4>
+<ul>
+<li>Number of Call Limits<ul>
+<li>Pro 2 million</li>
+<li>Corporate 6 million</li>
+<li>Enterprise 200 million</li>
+</ul>
+</li>
+<li>Rate Limits<ul>
+<li>2,000 SOAP calls per minute</li>
+<li>2,500 REST calls per minute</li>
+</ul>
+</li>
+</ul>
+<h4 id="optimize">Optimize</h4>
+<hr />
+<h2 id="rest-api_1">REST API</h2>
+<p>A REST request is made of four components:</p>
+<ul>
+<li>The endpoint<ul>
+<li>Is made of the root endpoint + path</li>
+<li>Make use of your tenant endpoint</li>
+</ul>
+</li>
+<li>The method<ul>
+<li>GET</li>
+<li>POST</li>
+<li>PUT</li>
+<li>DELETE</li>
+</ul>
+</li>
+<li>The headers<ul>
+<li>Can be used for things as authentication or providing information about the body content</li>
+</ul>
+</li>
+<li>The data (or body)<ul>
+<li>Contains the information you want to be sent to the server</li>
+</ul>
+</li>
+</ul>
+<h4 id="response-handling">Response Handling</h4>
+<h4 id="authentication">Authentication</h4>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/requestToken.html">Request Token</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/access-token-s2s.html">oAuth2</a><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/access-token-app.html">Refresh Access Token</a> - Lifetime of access token is 20 minutes, refresh 5 min before expiry</li>
+</ul>
+</li>
+<li><a href="https://ampscript.xyz/tips-and-tricks/how-to-create-store-use-rest-api-tokens-in-sfmc/">Token Management</a></li>
+<li>Storing credentials in an integration:<ul>
+<li>Set credentials as environment variables in the application platform</li>
+<li>Store credentials in a <a href="https://help.salesforce.com/s/articleView?id=sf.mc_overview_key_management.htm&amp;type=5">key management system</a> (KMS)</li>
+</ul>
+</li>
+</ul>
+<h4 id="processing-types"><a href="https://www.predicagroup.com/blog/synchronous-vs-asynchronous-communication/">Processing Types</a></h4>
+<ul>
+<li><strong>Synchronous</strong> - the connection remains open from the moment the request is submitted to the server by the client. The client waits until the server sends back a response. With synchronous call processing, API calls go directly to Marketing Cloud to be processed at the time they are received. If Marketing Cloud is unavailable, either for scheduled or unscheduled maintenance, synchronous API calls cannot be received and are not processed.</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/asynchronous_processing.html"><strong>Asynchronous</strong></a> - <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/asynchronous_processing_scenarios.html">Asynchronous</a> clients don’t need to wait for a response to continue working. Therefore, microservices in an app can continue to process and send data, even when one of their partner services runs into trouble. This capability provides more reliable service to the user and can be especially valuable in cases where service availability is low or overloaded with demand.<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/resultitem.html">ResultItem</a> - contains the results of an asynchronous API call specified with <strong>RequestID</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="rest-routes">REST Routes</h4>
+<ul>
+<li>Uses JSON request and response bodies and resource endpoings to support multi-channel use.</li>
+<li><strong><span style="color:red;">!!!</span></strong> Most case are synchronous</li>
+<li><strong><span style="color:red;">!!!</span></strong> Payload max 4MB</li>
+<li><strong><span style="color:red;">!!!</span></strong> Timeout 120 seconds non-tracking</li>
+<li><strong><span style="color:red;">!!!</span></strong> Timeout 300 seconds with tracking</li>
+</ul>
+<h4 id="popular-routes-uses">Popular Routes (Uses)</h4>
+<ul>
+<li><strong><span style="color:red;">!!!</span></strong> <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/content-api.html"><strong>Content Builder</strong></a> - /asset/v1/content<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/base-asset-types.html">List of Asset Types</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/getObjectById.html">Get an Asset by ID</a></li>
+</ul>
+</li>
+<li><strong><span style="color:red;">!!!</span></strong> <a href=""><strong>Event Notification Service</strong></a> - /platform/v1</li>
+<li><strong><span style="color:red;">!!!</span></strong> <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/journey-builder-api-overview.html"><strong>Journey Builder</strong></a> - /interactions/v1<ul>
+<li><a href="https://help.salesforce.com/s/articleView?id=sf.mc_jb_admit_contacts_via_api.htm&amp;type=5">Add Contact in a Journey</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/postEvent.html">Fire Event</a></li>
+</ul>
+</li>
+<li><strong><span style="color:red;">!!!</span></strong> <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/transactional-messaging-api.html"><strong>Transactional Messaging</strong></a> - /messaging/v1/email &amp; /messaging/v1/sms</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/routes.html#contacts">Contact Builder</a><ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/createContacts.html">Create Contacts</a></li>
+</ul>
+</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/insertDataExtensionIDAsync.html">Add Data to Data Extension</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/validateEmail.html">Validate Email Address</a>
+s</li>
+</ul>
+<h4 id="api-reference">API Reference</h4>
+<h4 id="parse-json">Parse JSON</h4>
+<hr />
+<h2 id="soap-api">SOAP API</h2>
+<h4 id="methods">Methods</h4>
+<ul>
+<li>CREATE - Multiple object types can be created with one call.</li>
+<li>RETRIEVE</li>
+<li>UPDATE - Multiple object types can be updated with one call.</li>
+<li>DELETE - Multiple object types can be deleted with one call.</li>
+<li>EXECUTE</li>
+<li>PERFORM</li>
+<li>PLATFORM</li>
+<li>CONFIGURE</li>
+<li>EXTRACT</li>
+<li>DESCRIBE</li>
+<li>GET SYSTEM STATUS</li>
+<li>QUERY</li>
+</ul>
+<h4 id="payload">Payload</h4>
+<ul>
+<li>Header</li>
+<li>Request Type/Method<ul>
+<li>Options (optional)</li>
+<li>Object/Array</li>
+<li>Attributes/Properties</li>
+<li>Filters (optional)</li>
+</ul>
+</li>
+</ul>
+<h4 id="objects">Objects</h4>
+<ul>
+<li><strong><span style="color:red;">!!!</span></strong> Account - Represents a Marketing Cloud account<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/retrieving_account_object_using_the_partnerkey_attribute.html">How to retrieve an account object</a></li>
+</ul>
+</li>
+<li><strong><span style="color:red;">!!!</span></strong> AccountUser - Represents a Marketin Cloud user</li>
+<li><strong><span style="color:red;">!!!</span></strong> DataExtension - Represents a Data Extension</li>
+<li><strong><span style="color:red;">!!!</span></strong> DataExtensionObject - Represents a row within a Data Extension
+    -<a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/adding_data_to_data_extension_object.html">Data Extension Object to add data</a></li>
+<li><strong><span style="color:red;">!!!</span></strong> Subscriber - Represents a subscriber record</li>
+<li><strong><span style="color:red;">!!!</span></strong> List - Represents a list</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/sentevent.html">SentEvent</a></li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/unsubscribing_and_logging_an_unsubevent_with_a_logunsubevent_execute_call.html">LogUnsubEvent</a><ul>
+<li>SubscriberKey and JobID are needed</li>
+</ul>
+</li>
+</ul>
+<h4 id="async-requests">Async Requests</h4>
+<ul>
+<li>Ideal for<ul>
+<li>TriggeredSends</li>
+<li>DataExtensionObjects</li>
+</ul>
+</li>
+<li>Should be used when you need to prioritise<ul>
+<li>High Availability</li>
+<li>Queued calls</li>
+<li>Sequential Processing</li>
+<li>Delays in the Schedule</li>
+</ul>
+</li>
+</ul>
+<h4 id="error-handling"><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/error_codes.html">Error Handling</a></h4>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/0_99.html">General Error Codes</a></li>
+</ul>
+<h4 id="triggered-send"><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/soap_tech_articles_triggered_sends.html">Triggered Send</a></h4>
+<p>Available via the TriggeredSend object using the Create method.
+* <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/subscriber.html">Subscriber</a>
+* [TriggerSendDefinition](https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/triggeredsenddefinition.html</p>
+<hr />
+<h2 id="error-handling_1">Error Handling</h2>
+<h4 id="rate-limiting-errors">Rate Limiting Errors</h4>
+<ul>
+<li>Marketing Cloud reserves the right to throttle <strong>REST and SOAP API</strong> requests from a specific customer (account level) when those API requests cause slowed system performance. (Lifting the "ban" requires a support request.) The throttling rate depends on the rate necessary to stabilize operations. If this throttling occurs, the business unit or user causing this issue receives <strong>HTTP 429 (REST)</strong> or <strong>HTTP 500 (SOAP)</strong> error messages communicating the limited rate until the requests causing the issue cease.</li>
+</ul>
+<h4 id="rest-error-codes">REST Error Codes</h4>
+<ul>
+<li>Validation<ul>
+<li>Data Type</li>
+<li>Message format</li>
+<li>Media Type</li>
+</ul>
+</li>
+<li>Authorization<ul>
+<li>Privileges</li>
+<li>Business Rules</li>
+</ul>
+</li>
+<li>Authentication<ul>
+<li>Authentication</li>
+<li>Internal Server Error</li>
+</ul>
+</li>
+<li>Runtime<ul>
+<li>Object</li>
+<li>Requests</li>
+</ul>
+</li>
+</ul>
+<h4 id="error-codes">Error Codes</h4>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/error-handling.html">HTTP</a></li>
+</ul>
+<hr />
+<h2 id="hands-on-activity">Hands on Activity</h2>
+<p>Potentially covers 50-60% of the exam material in this section.</p>
+<ul>
+<li>Create API package</li>
+<li>REST - get authentication token (API)</li>
+<li>REST - <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/content.html">Create HTML email</a></li>
+<li>SOAP - <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/dataextensiontemplate.html">Retrieve DE Templates</a> (required to create Triggered Send DE)</li>
+<li>SOAP - Create Triggered Send <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/dataextension.html">Data Extension</a></li>
+<li>SOAP - Create <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/triggeredsenddefinition.html">Triggered Send Definition</a></li>
+<li>REST - Execute <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/sendSMSMessageSingleRecipient.html">Triggered Send</a></li>
+<li>SOAP - Execute <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/triggeredsend.html">Triggered Send</a></li>
+<li>SOAP - <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/adding_data_to_data_extension_object.html">Insert row to DE</a> (review REST insert but can't use without Primary Key)</li>
+<li>REST - <a href="https://salesforce.stackexchange.com/questions/110296/rest-api-for-reading-from-a-data-extension">Retrieve Data</a></li>
+<li>SOAP - <a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/retrieving_data_from_a_data_extension.html">Retrieve Data</a></li>
+</ul>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>1 Concurrent Import to data extension or lists</li>
+<li>Up to 50 Sender Profiles</li>
+<li>Up to 1000 import and filter definitions</li>
+<li>Up to 1000 Business Units per Account</li>
+<li>Up to 50 profile attributes</li>
+<li>Up to 1million rows in a data extension</li>
+<li>Up to 1000 users per account</li>
+<li>Up to 1000 Data extensions in a Account</li>
+</ul>
+<hr />
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm"><em>Salesforce Developers</em>: Intro to Marketing Cloud APIs and REST API</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/web_service_guide.htm"><em>Salesforce Developers</em>: OAP Web Service API</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.htm"><em>Salesforce Developers</em>: Your Subdomain and Your Tenant’s Endpoints</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-app-development.meta/mc-app-development/api-integration.htm"><em>Salesforce Developers</em>: API Integration</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-app-development.meta/mc-app-development/create-integration-enhanced.htm"><em>Salesforce Developers</em>: Create an OAuth 2.0 API Integration in Enhanced Packages</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-app-development.meta/mc-app-development/integration-considerations.htm"><em>Salesforce Developers</em>: OAuth 2.0 API Considerations</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/error-handling.htm"><em>Salesforce Developers</em>: Error Handling</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/error_codes.htm"><em>Salesforce Developers</em>: Error Codes</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm"><em>Salesforce Developers</em>: Intro to Marketing Cloud APIs</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/content-api.htm"><em>Salesforce Developers</em>: Content Builder API</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/gc-chat-messaging-api.htm"><em>Salesforce Developers</em>: GroupConnect Chat Messaging API</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/journey-builder-api-overview.htm"><em>Salesforce Developers</em>: Journey Builder API</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/using-the-mobileconnect-api.htm"><em>Salesforce Developers</em>: MobileConnect API</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/pb-api.htm"><em>Salesforce Developers</em>: Personalization Builder API</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/transactional-messaging-api.htm"><em>Salesforce Developers</em>: Transactional Messaging API</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/routes.htm"><em>Salesforce Developers</em>: REST API Reference</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/web_service_guide.htm"><em>Salesforce Developers</em>: SOAP Web Service API</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/getting_started_developers_and_the_exacttarget_api.htm"><em>Salesforce Developers</em>: Get Started with the SOAP Web Services API</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/api-security.htm"><em>Salesforce Developers</em>: API Integration Security</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/soap_api_best_practices.htm"><em>Salesforce Developers</em>: SOAP API Best Practices</a></li>
+<li><strong><span style="color:red;">!!!</span></strong> <a href="https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/optimizing_api_calls_and_data_structures_to_improve_performance_in_the_salesforce_marketing_cloud.htm"><em>Salesforce Developers</em>: Optimize API Calls and Data Structures to Improve Performance</a></li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mc-sdks.meta/mc-sdks/index-sdk.htm"><em>Salesforce Developers</em>: Introduction to Marketing Cloud Platform SDKs</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../programmatic-languages/" class="btn btn-neutral float-left" title="Programmatic Languages (35%)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../data-modeling/" class="btn btn-neutral float-right" title="Data Modeling (14%)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../programmatic-languages/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../data-modeling/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
