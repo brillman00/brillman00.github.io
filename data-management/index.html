@@ -87,6 +87,8 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#best-practices_1">Best Practices</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#order-of-execution">Order of Execution</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#join-statements">JOIN Statements</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#union">UNION</a>
@@ -346,6 +348,16 @@
 <li>Use brackets to mention the name of field or data extensions that have a space in their name</li>
 <li>Use alias to assign temporary name for tables, to make query easy to read</li>
 </ul>
+<h4 id="order-of-execution">Order of Execution</h4>
+<pre><code class="language-sql">SELECT DISTINCT column, AGG_FUNC(column_or_expression), …
+FROM mytable
+    JOIN another_table
+      ON mytable.column = another_table.column
+    WHERE constraint_expression
+    GROUP BY column
+    HAVING constraint_expression
+    ORDER BY column ASC/DESC
+</code></pre>
 <h4 id="join-statements">JOIN Statements</h4>
 <p>Used to retrieve data from 2 or more data extensions</p>
 <ul>
@@ -392,15 +404,15 @@
 </ul>
 </li>
 <li>Limiting and Ordering results<ul>
-<li>TOP</li>
-<li>ORDER BY</li>
-<li>GROUP BY</li>
+<li><a href="https://www.w3schools.com/sql/sql_top.asp">TOP</a></li>
+<li><a href="https://www.w3schools.com/sql/sql_orderby.asp">ORDER BY</a></li>
+<li><a href="https://www.w3schools.com/sql/sql_groupby.asp">GROUP BY</a></li>
 </ul>
 </li>
 <li>Date-based Functions<ul>
-<li>DATEDIFF</li>
-<li>DATEADD</li>
-<li>DATEPART</li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_datediff.asp">DATEDIFF()</a></li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_dateadd.asp">DATEADD()</a></li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_datepart.asp">DATEPART</a></li>
 <li><a href="https://www.w3schools.com/sql/func_sqlserver_isdate.asp">ISDATE()</a></li>
 </ul>
 </li>
@@ -408,15 +420,18 @@
 <li><a href="https://www.w3schools.com/sql/func_sqlserver_avg.asp">Avg()</a></li>
 <li><a href="https://www.w3schools.com/sql/func_sqlserver_sum.asp">Sum()</a></li>
 <li><a href="https://www.w3schools.com/sql/func_sqlserver_count.asp">Count()</a></li>
-<li>Min()</li>
-<li>Max()</li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_min.asp">Min()</a></li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_max.asp">Max()</a></li>
 </ul>
 </li>
 <li>Replacing, Locating and Trimming data<ul>
-<li>[Replace()]</li>
-<li>[Char()]</li>
-<li>[LTrim()]</li>
-<li>[RTrim()]</li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_replace.asp">Replace()</a></li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_char.asp">Char()</a><ul>
+<li><a href="https://www.mssqltips.com/sqlservertip/6022/sql-server-char-function-and-reference-guide/">Characeter Codes</a></li>
+</ul>
+</li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_ltrim.asp">LTrim()</a></li>
+<li><a href="https://www.w3schools.com/sql/func_sqlserver_rtrim.asp">RTrim()</a></li>
 </ul>
 </li>
 </ul>

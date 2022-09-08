@@ -180,8 +180,8 @@
 </li>
 <li><strong>Data Extension Functions</strong><ul>
 <li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/insertdata.htm">InsertData()</a></li>
-<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/lookuprows.htm">LookupRows()</a> - Returns a rowset with limit of 2.5K rows</li>
-<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/lookuporderedrows.htm">LookupOrderedRows()</a> - Returns specific number of rows and has the ability to sort rows.</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/lookuprows.htm">LookupRows()</a> - Returns a rowset with limit of 2,000 rows</li>
+<li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/lookuporderedrows.htm">LookupOrderedRows()</a> - Returns specific number of rows and has the ability to sort rows. (2,000 is default)</li>
 <li><a href="https://developer.salesforce.com/docs/marketing/marketing-cloud/guide/lookup.htm">Lookup()</a> - gives you 1 value/cell from a data extension</li>
 <li><strong><span style="color:red;">!!!</span></strong> - The majority of the AMPscript questions will likely be around interacting with Data Extensions, so be very familiar with them</li>
 <li><strong><span style="color:red;">!!!</span></strong> - Important to understand the difference between <strong>LookupRows()</strong> and <strong>Lookup()</strong></li>
@@ -353,8 +353,8 @@
 </ul>
 <h4 id="ssjs-supported-personalization-string-tags">SSJS Supported Personalization String Tags</h4>
 <ul>
-<li><ctrl:field name="the_field" /> — References subscriber attribute values, system attribute values, and sendable data extension field values</li>
-<li><ctrl:var name="the_var" /> — References variables created in AMPscript or server-side JavaScript script blocks</li>
+<li>ctrl:field — References subscriber attribute values, system attribute values, and sendable data extension field values</li>
+<li>ctrl:var — References variables created in AMPscript or server-side JavaScript script blocks</li>
 <li>ctrl:eval — Embeds JavaScript expressions as content substitutions</li>
 </ul>
 <h4 id="parse-json-platform">Parse JSON (Platform)</h4>
